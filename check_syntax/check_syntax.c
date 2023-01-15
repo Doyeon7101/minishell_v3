@@ -29,10 +29,11 @@ int	*check_filename(t_rdr *rdr, int *ret)
 
 void	check_syntax(t_token *tree, int *ret, t_exec *data)
 {
-	if (*ret == -1)
-		return ;
-	if (tree == NULL)
+	if (tree == NULL || *ret == -1)
+	{
 		*ret = -1;
+		return ;
+	}
 	if (tree->type == T_PIPE)
 	{
 		data->is_pipe = 1;

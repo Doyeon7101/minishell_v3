@@ -34,17 +34,15 @@ t_scmd	*parse_free(t_scmd *cmd)
 
 t_token	*non_string(t_token *tree, t_scmd *cmd, char *line)
 {
-	if (cmd->quotes != 0)
+	if (!cmd->str)
 		return (0);
-	else if (cmd->str != NULL)
-	{
-		if (cmd->cnt == 1)
-			tree = ft_pipe_func(tree, cmd->str, line);
-		else
-			tree = ft_cmd_func(tree, cmd->str);
-		return (tree);
-	}
-	return (0);
+	else if (cmd->quotes != 0)
+		return (0);
+	else if (cmd->cnt == 1)
+		tree = ft_pipe_func(tree, cmd->str, line);
+	else
+		tree = ft_cmd_func(tree, cmd->str);
+	return (tree);
 }
 
 char	*str_joins(t_scmd *cmd)
@@ -57,7 +55,7 @@ char	*str_joins(t_scmd *cmd)
 
 t_token	*ft_parse(char *line, t_token *tree, t_scmd *cmd, char **env)
 {
-	while (*line)
+	while (*line && line)
 	{
 		cmd->quotes = is_quotes_set(*line, cmd->quotes);
 		if (*line == '|' && cmd->quotes == 0 && cmd->str != 0)

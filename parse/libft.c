@@ -56,8 +56,13 @@ size_t	fts_strlen(const char *s)
 	size_t	i;
 
 	i = 0;
-	while (s[i])
+	if (s == NULL)
+		return (0);
+	while (*s && s)
+	{
+		s++;
 		i++;
+	}
 	return (i);
 }
 

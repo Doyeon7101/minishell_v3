@@ -34,6 +34,8 @@ t_token	*ft_cmd_func(t_token *tree, char *str)
 
 	quotes = 0;
 	chr = 0;
+	if (str == NULL)
+		return (0);
 	while (*str && str)
 	{
 		quotes = is_quotes_set(str[0], quotes);
