@@ -40,7 +40,7 @@ char	**quotes_func(char **argv)
 	i = 0;
 	while (argv[i])
 		i++;
-	str = malloc(sizeof(char *) * (i));
+	str = safe_alloc(1, sizeof(char *) * (i + 1));
 	i = -1;
 	while (argv[++i])
 	{

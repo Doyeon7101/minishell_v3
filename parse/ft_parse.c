@@ -25,7 +25,7 @@ t_scmd	*parse_free(t_scmd *cmd)
 {
 	free(cmd->str);
 	free(cmd);
-	cmd = malloc(sizeof(t_scmd));
+	cmd = safe_alloc(1, sizeof(t_scmd));
 	cmd->quotes = 0;
 	cmd->cnt = 0;
 	cmd->str = 0;

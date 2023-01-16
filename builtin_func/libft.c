@@ -54,8 +54,8 @@ char	*ft_strjoin3(char *s1, char *s2)
 	index = 0;
 	strindex = 0;
 	if (s1 == NULL)
-		s1 = malloc(sizeof(char) * 1);
-	str = (char *)malloc(sizeof(char) * (sindex1 + sindex2 + 1));
+		s1 = safe_alloc(1, sizeof(char) * 1);
+	str = (char *)safe_alloc(1, sizeof(char) * (sindex1 + sindex2 + 1));
 	if (str == NULL)
 		return (NULL);
 	while (index < sindex1)

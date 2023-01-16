@@ -84,7 +84,7 @@ char	**ft_split(char const *s, char c)
 
 	cmd = malloc(sizeof(t_scmd));
 	split_init(cmd);
-	strlist = (char **)malloc(sizeof(char *) * (ft_wordcount(s, c) + 1));
+	strlist = (char **)safe_alloc(1, sizeof(char *) * (ft_wordcount(s, c) + 1));
 	if (!strlist)
 		return (NULL);
 	while (cmd->i < (int)ft_wordcount(s, c) && s[cmd->k] != '\0')

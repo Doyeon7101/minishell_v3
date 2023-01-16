@@ -39,9 +39,7 @@ char	*fts_strdup(const char *s1)
 	char	*pnew;
 
 	len = fts_strlen(s1);
-	pnew = (char *)malloc(sizeof(char) * (len + 1));
-	if (pnew == 0)
-		return (0);
+	pnew = (char *)safe_alloc(1, sizeof(char) * (len + 1));
 	i = 0;
 	while (i <= len)
 	{
