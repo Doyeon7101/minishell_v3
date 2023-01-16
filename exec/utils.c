@@ -6,7 +6,7 @@
 /*   By: dpark <dpark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 10:21:07 by dpark             #+#    #+#             */
-/*   Updated: 2023/01/11 12:18:01 by dpark            ###   ########.fr       */
+/*   Updated: 2023/01/15 23:32:38 by dpark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	*ft_alert_calloc(size_t count, size_t size)
 	ret = malloc(count * size);
 	if (!ret)
 	{
-		printf("malloc error!\n");
+		write(STDERR_FILENO, "malloc error!\n", ft_strlen("malloc error!\n"));
 		exit(1);
 	}
 	ft_memset(ret, 0, count * size);

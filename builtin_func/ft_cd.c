@@ -6,7 +6,7 @@
 /*   By: dpark <dpark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 22:28:04 by dpark             #+#    #+#             */
-/*   Updated: 2023/01/14 14:47:38 by dpark            ###   ########.fr       */
+/*   Updated: 2023/01/15 23:42:31 by dpark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,12 @@ t_bool	update_path(char *path, char *now, t_exec *exec, char **env)
 		free(now);
 		return (FALSE);
 	}
-	argv = (char **)malloc(sizeof(char *) * 3);
+	argv = (char **)safe_alloc(1, sizeof(char *) * 3);
 	argv[0] = "export";
 	argv[1] = ft_strjoin2("OLDPWD=", now);
 	argv[2] = NULL;
 	ft_export(argv, exec, env);
-	argv = (char **)malloc(sizeof(char *) * 3);
+	argv = (char **)safe_alloc(1, sizeof(char *) * 3);
 	pwd = getcwd(NULL, 0);
 	argv[0] = "export";
 	argv[1] = ft_strjoin2("PWD=", pwd);

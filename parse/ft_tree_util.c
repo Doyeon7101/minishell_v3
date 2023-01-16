@@ -6,11 +6,20 @@
 /*   By: dpark <dpark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 17:32:52 by sangminpark       #+#    #+#             */
-/*   Updated: 2023/01/15 14:34:23 by dpark            ###   ########.fr       */
+/*   Updated: 2023/01/15 23:43:45 by dpark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_parser.h"
+
+void	ft_free_token(t_token *token)
+{
+	if (token == 0)
+		return ;
+	ft_free_token(token->left);
+	ft_free_token(token->right);
+	free(token);
+}
 
 int	quotes_func_len(int quotes, char argv)
 {
@@ -19,7 +28,7 @@ int	quotes_func_len(int quotes, char argv)
 		return (1);
 	return (0);
 }
-// 값을 받아오고 따옴표를 없애준다.
+
 char	**quotes_func(char **argv)
 {
 	int		i;
@@ -31,8 +40,7 @@ char	**quotes_func(char **argv)
 	i = 0;
 	while (argv[i])
 		i++;
-	str = malloc(sizeof(char *) * (i)); //str 사이즈만큼 말록
-	str = 
+	str = malloc(sizeof(char *) * (i));
 	i = -1;
 	while (argv[++i])
 	{
@@ -46,7 +54,7 @@ char	**quotes_func(char **argv)
 				str[i] = fts_strjoin(str[i], argv[i][j], 0);
 		}
 	}
-	str[i + 1] = NULL; // 밖으로 빼줌
+	str[i + 1] = NULL;
 	return (str);
 }
  

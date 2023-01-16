@@ -6,7 +6,7 @@
 /*   By: dpark <dpark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 20:43:43 by sangminpark       #+#    #+#             */
-/*   Updated: 2023/01/12 19:35:07 by dpark            ###   ########.fr       */
+/*   Updated: 2023/01/15 23:42:20 by dpark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strdup(char *s1)
 	char	*pnew;
 
 	len = ft_strlen(s1);
-	pnew = (char *)malloc(sizeof(char) * (len + 1));
+	pnew = (char *)safe_alloc(1, sizeof(char) * (len + 1));
 	if (pnew == 0)
 		return (0);
 	i = 0;

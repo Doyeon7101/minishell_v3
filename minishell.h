@@ -6,7 +6,7 @@
 /*   By: dpark <dpark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 19:04:08 by dpark             #+#    #+#             */
-/*   Updated: 2023/01/14 12:12:17 by dpark            ###   ########.fr       */
+/*   Updated: 2023/01/15 23:32:48 by dpark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,9 +112,12 @@ t_scmd		*parse_free(t_scmd *cmd);
 void		search_tree(t_token *node, t_exec *exec, char **env, int *sucess);
 void		print_tree(t_token *tree);
 void		print_gard(void);
-void		*ft_alert_calloc(size_t count, size_t size);
 int			ftd_strcmp(char *s1, char *s2);
 void		check_syntax(t_token *tree, int *ret, t_exec *data);
+void		*ft_alert_calloc(size_t count, size_t size);
+void		*safe_alloc(size_t cnt, size_t size);
+int			ft_strlen(char *str);
+
 
 // signal.c
 void		sigint_c(int signum);

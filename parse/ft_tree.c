@@ -6,7 +6,7 @@
 /*   By: dpark <dpark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 17:26:18 by sangminpark       #+#    #+#             */
-/*   Updated: 2023/01/12 15:48:10 by dpark            ###   ########.fr       */
+/*   Updated: 2023/01/15 23:40:40 by dpark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ t_token	*new_node(char *str, int type)
 	t_token	*temp;
 	char	**argv;
 
-	temp = (t_token *)malloc(sizeof(t_token));
-	temp->rdr = (t_rdr *)malloc(sizeof(t_rdr));
-	temp->cmd = (t_cmd *)malloc(sizeof(t_cmd));
+	temp = safe_alloc(1, sizeof(t_token));
+	temp->rdr = safe_alloc(1, sizeof(t_token));
+	temp->cmd = safe_alloc(1, sizeof(t_token));
 	if (type == T_REDS)
 	{
 		temp->rdr->type = file_name(str);

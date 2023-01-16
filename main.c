@@ -6,7 +6,7 @@
 /*   By: dpark <dpark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 10:21:25 by dpark             #+#    #+#             */
-/*   Updated: 2023/01/15 00:15:57 by dpark            ###   ########.fr       */
+/*   Updated: 2023/01/15 23:22:39 by dpark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,7 @@ void	check_vaild_execute(t_exec *data, t_token *tree, \
 		printf("ERROR: quotes error\n");
 		return ;
 	}
-		printf("123\n");
 	check_syntax(tree, &ret, data);
-		printf("1234\n");
 	if (ret == -1)
 		printf("ERROR: fail to syntax analysis\n");
 	else if (tree)
@@ -62,12 +60,9 @@ void	prompt(char **env, t_exec *data, t_scmd *cmd)
 		init_signal_exec(data, &tree);
 		line = readline("parkshell$ ");
 		check_exit_sigterm(line);
-		if (is_line_spaces(line))
-			;
-		else
+		if (!is_line_spaces(line))
 		{
 			tree = ft_parse(line, tree, cmd, env);
-			printf("123\n");
 			check_vaild_execute(data, tree, env, cmd);
 			cmd = parse_free(cmd);
 			ft_free_token(tree);
@@ -85,7 +80,7 @@ int	main(void)
 	t_exec		data;
 	t_scmd		*cmd;
 
-	cmd = malloc(sizeof(t_cmd));
+	cmd = safe_alloc(1, sizeof(t_cmd));
 	cmd->env = 0;
 	print_gard();
 	prompt(environ, &data, cmd);

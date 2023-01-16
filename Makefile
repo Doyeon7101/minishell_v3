@@ -15,6 +15,7 @@ MAIN_SRCS = main.c \
 		./exec/exec.c \
 		./exec/env.c \
 		./exec/exit.c \
+		./exec/alloc.c \
 		./exec/check_nextpipe.c \
 		./parse/ft_parse.c \
 		./parse/ft_parser_util.c \

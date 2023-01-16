@@ -6,7 +6,7 @@
 /*   By: dpark <dpark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 17:22:40 by sangminpark       #+#    #+#             */
-/*   Updated: 2023/01/12 18:17:12 by dpark            ###   ########.fr       */
+/*   Updated: 2023/01/15 23:39:50 by dpark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,4 @@ char	*fts_strdup(const char *s1);
 char	*ft_strndup(const char *s, size_t n);
 char	**ft_split(char const *s, char c);
 char	**ft_freeall(char **list);
-
 #endif
